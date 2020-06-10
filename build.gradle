@@ -32,4 +32,6 @@ dependencies {
     compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.12.RELEASE'
     compile group: 'org.springframework.data', name: 'spring-data-commons', version: '1.13.12.RELEASE'
     compile group: 'org.springframework', name: 'spring-aspects', version: '4.3.25.RELEASE'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.10.Final'
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="/addCart" method="post">
+<table>
+
+    <input type="hidden" id="id" name="id" th:value="${gameDetail.getId()}">
+    <h1 th:text="${gameDetail.getName()}"></h1>
+    <h4 th:text="${'Game ID: '+ gameDetail.getId()}"></h4>
+    <div><img th:src="${gameDetail.getImgLink()}" width="500px" height="800px"/></div>
+    <h4 th:text="${gameDetail.getPrice()}"></h4>
+    <h4 th:text="${gameDetail.getDescription()}"></h4>
+
+    <button type="submit">ADD CART</button>
+</table>
+</form>
+</body>
+</html>
