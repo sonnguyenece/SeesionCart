@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CartService {
     List<Product> showAllCart();
-    void addQuantity(Long id);
-    void subtractQuantity(Long id);
-    void subtractAllQuantity(Long id);
+    void addProductQuantity(Long id);
+    void removeQuantity(Long id);
+    void removeAllQuantity(Long id);
 }

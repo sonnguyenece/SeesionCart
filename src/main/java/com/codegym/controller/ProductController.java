@@ -1,6 +1,8 @@
 package com.codegym.controller;
 
+import com.codegym.model.Cart;
 import com.codegym.model.Product;
+import com.codegym.service.CartService;
 import com.codegym.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,11 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@SessionAttributes
+@SessionAttributes("myCart")
 public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CartService cartService;
+
+    @ModelAttribute("myCart")
+    public Cart setUpCart() {
+        return new Cart();
+    }
 
     @GetMapping("/homepage")
     public ModelAndView showHomepage() {
@@ -30,12 +39,20 @@ public class ProductController {
         return modelAndView;
     }
 
-    @PostMapping("addCart")
-    public ModelAndView addCart(@RequestParam("id")Long id){
-        ModelAndView modelAndView =new ModelAndView("/cart");
-        System.out.println(id);
-        Product game = productService.findById(id);
+    @PostMapping("showCart")
+    public ModelAndView addCart(@RequestParam("id") Long id, @ModelAttribute("myCart") Cart cart) {
+        ModelAndView modelAndView = new ModelAndView("/cart");
+        Product product = productService.findById(id);
+
+        cart.addAProduct(id);
+
+//        Cart newList= new Cart();
+//        cart.addAProduct(id);
+//        if (cart.)
+        modelAndView.addObject("cartList", cart.getProductList());
+
 
         return modelAndView;
     }
+
 }

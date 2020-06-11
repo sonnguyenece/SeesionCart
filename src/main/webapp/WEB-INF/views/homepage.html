@@ -7,21 +7,19 @@
 <body>
 <form th:action="@{/selectGame}" method="post">
 <table border="1px" cellspacing="0">
+    <tr>
+        <td>IMG</td>
+        <td>NAME</td>
+        <td>PRICE</td>
+    </tr>
     <th:block th:each="product,iter:${productList}">
         <input type="hidden" name="id" th:value="${product.id}">
-        <tr>
-            <td>IMG</td>
-            <td>NAME</td>
-            <td>PRICE</td>
-<!--            <td>DESCRIPTION</td>-->
-        </tr>
         <tr>
             <td ><a th:href="@{/game/{id}(id=${product.id})}">
                 <img th:src="${product.getImgLink()}" width="150px" height="200px"/>
             </a></td>
             <td th:text="${product.getName()}"></td>
             <td th:text="${product.getPrice()}"></td>
-<!--            <td th:text="${product.getDescription()}" style="width: 300px"></td>-->
         </tr></a>
 
     </th:block>

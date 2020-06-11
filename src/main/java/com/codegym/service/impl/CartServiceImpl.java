@@ -11,18 +11,19 @@ public class CartServiceImpl implements CartService {
         return null;
     }
 
+
     @Override
-    public void addQuantity(Long id) {
+    public void addProductQuantity(Long id) {
 
     }
 
     @Override
-    public void subtractQuantity(Long id) {
+    public void removeQuantity(Long id) {
 
     }
 
     @Override
-    public void subtractAllQuantity(Long id) {
+    public void removeAllQuantity(Long id) {
 
     }
 }

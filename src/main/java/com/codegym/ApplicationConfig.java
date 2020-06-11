@@ -1,7 +1,9 @@
 package com.codegym;
 
 
+import com.codegym.service.CartService;
 import com.codegym.service.ProductService;
+import com.codegym.service.impl.CartServiceImpl;
 import com.codegym.service.impl.ProductServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -72,11 +74,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
 //        registry.addFormatter(new ProvinceFormatter(applicationContext.getBean(ProvinceService.class)));
 //    }
 //
-//    @Bean
-//    public CustomerService customerService() {
-//        return new CustomerServiceImpl();
-//    }
-//
+    @Bean
+    public CartService cartService() {
+        return new CartServiceImpl();
+    }
+
     @Bean
     public ProductService productService() {
         return new ProductServiceImpl();

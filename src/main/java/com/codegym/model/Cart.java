@@ -1,30 +1,42 @@
 package com.codegym.model;
 
-public class Cart {
-    private String id;
-    private int quantity;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Cart(String id, int quantity) {
-        this.id = id;
-        this.quantity = quantity;
-    }
+public class Cart {
+
+    private Map<Long, Integer> productList;
 
     public Cart() {
-   }
-
-    public String getId() {
-        return id;
+        this.productList = new HashMap<>();
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void addAProduct(Long id) {
+        int quantity = 1;
+        if (productList.containsKey(id)) {
+            quantity = productList.get(id);
+            productList.replace(id, quantity + 1);
+        } else productList.put(id, quantity);
     }
 
-    public int getQuantity() {
-        return quantity;
+    public void removeAProduct(Long id) {
+        int quantity = 0;
+        if (productList.containsKey(id)) {
+            quantity = productList.get(id);
+            productList.replace(id, quantity - 1);
+        }
+        if (quantity == 0) productList.clear();
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void removeAllProduct(Long id) {
+        productList.clear();
+    }
+
+    public Map<Long, Integer> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(Map<Long, Integer> productList) {
+        this.productList = productList;
     }
 }
