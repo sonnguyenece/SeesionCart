@@ -15,8 +15,8 @@
         <div style="float: left;margin-left: 10%">
             <h1 th:text="${gameDetail.getName()}"></h1>
             <h4 th:text="${'Game ID: '+ gameDetail.getId()}"></h4>
-            <h4 th:text="${gameDetail.getDescription()}"></h4>
-            <h4 th:text="${gameDetail.getPrice()}"></h4>
+            <h4 th:text="${'About this game: '+gameDetail.getDescription()}"></h4>
+            <h4 th:text="${'Price: '+gameDetail.getPrice()}"></h4>
             <button type="submit">ADD CART</button>
         </div>
     </table>
