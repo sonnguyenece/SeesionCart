@@ -7,17 +7,19 @@
 </head>
 <body>
 <form action="/addCart" method="post">
-<table>
+    <table>
 
-    <input type="hidden" id="id" name="id" th:value="${gameDetail.getId()}">
-    <h1 th:text="${gameDetail.getName()}"></h1>
-    <h4 th:text="${'Game ID: '+ gameDetail.getId()}"></h4>
-    <div><img th:src="${gameDetail.getImgLink()}" width="500px" height="800px"/></div>
-    <h4 th:text="${gameDetail.getPrice()}"></h4>
-    <h4 th:text="${gameDetail.getDescription()}"></h4>
+        <input type="hidden" id="id" name="id" th:value="${gameDetail.getId()}">
 
-    <button type="submit">ADD CART</button>
-</table>
+        <div style="float: left"><img th:src="${gameDetail.getImgLink()}" width="400px" height="600px"/></div>
+        <div style="float: left;margin-left: 10%">
+            <h1 th:text="${gameDetail.getName()}"></h1>
+            <h4 th:text="${'Game ID: '+ gameDetail.getId()}"></h4>
+            <h4 th:text="${gameDetail.getDescription()}"></h4>
+            <h4 th:text="${gameDetail.getPrice()}"></h4>
+            <button type="submit">ADD CART</button>
+        </div>
+    </table>
 </form>
 </body>
 </html>
