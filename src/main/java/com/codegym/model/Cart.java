@@ -39,4 +39,8 @@ public class Cart {
     public void setProductList(Map<Long, Integer> productList) {
         this.productList = productList;
     }
+
+    public void getAllId(){
+
+    }
 }

@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @SessionAttributes("myCart")
 public class ProductController {
@@ -39,19 +42,15 @@ public class ProductController {
         return modelAndView;
     }
 
-    @PostMapping("showCart")
+    @PostMapping("/showCart")
     public ModelAndView addCart(@RequestParam("id") Long id, @ModelAttribute("myCart") Cart cart) {
         ModelAndView modelAndView = new ModelAndView("/cart");
-        Product product = productService.findById(id);
 
+        List<Product> productList = (List<Product>) productService.findAll();
         cart.addAProduct(id);
 
-//        Cart newList= new Cart();
-//        cart.addAProduct(id);
-//        if (cart.)
         modelAndView.addObject("cartList", cart.getProductList());
-
-
+        modelAndView.addObject("productList",productList);
         return modelAndView;
     }
 

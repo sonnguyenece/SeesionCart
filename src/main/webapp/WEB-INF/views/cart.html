@@ -5,12 +5,28 @@
     <title>CART</title>
 </head>
 <body>
-<th:block th:each="product:${cartList}">
-<tr>
-    <th th:text="${product.key}"></th>
-    <th th:text="${product.value}"></th>
-</tr>
+<h1><a href="/homepage">BACK TO MENU</a></h1>
+<table border="1px">
 
-</th:block>
+    <tr>
+        <td>ICON</td>
+        <td>GAME ID</td>
+        <td>GAME NAME</td>
+        <td>QUANTITY</td>
+        <td>GAME PRICE</td>
+    </tr>
+
+    <th:block th:each="product,iter:${cartList}" th:with="var=${product.key - 1}">
+        <tr>
+            <th>
+                <img th:src="${productList.get(var).getImgLink()}" width="40px" height="60px"/>
+            </th>
+            <th th:text=" ${product.key}"></th>
+            <th th:text=" ${productList.get(var).getName()}"></th>
+            <th th:text="${product.value}"></th>
+            <th th:text=" ${productList.get(var).getPrice()}"></th>
+        </tr>
+    </th:block>
+</table>
 </body>
 </html>
