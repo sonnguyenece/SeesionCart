@@ -23,10 +23,28 @@
             </th>
             <th th:text=" ${product.key}"></th>
             <th th:text=" ${productList.get(var).getName()}"></th>
-            <th th:text="${product.value}"></th>
-            <th th:text=" ${productList.get(var).getPrice()}"></th>
+            <th th:text="${product.value}" id="quantity" th:name="quantity"></th>
+            <th th:text=" ${productList.get(var).getPrice()}" id="price" th:name="price"
+                th:value="${productList.get(var).getPrice()}"></th>
+            <th th:text="${productList.get(var).getPrice() * product.value}" th:id="${iter.index}" th:onclick=""></th>
         </tr>
+<!--        <span th:if="${iter.size > iter.count}" ></span>-->
     </th:block>
+    <tr>
+        <th colspan="4">Estimated total</th>
+        <th id="totalPrice" th:name="totalPrice" th:id="totalPrice"></th>
+    </tr>
+
 </table>
 </body>
+<script th:inline="javascript">
+
+    // let price = document.getElementById("price").textContent;
+    // let quantity = document.getElementById("quantity").textContent;
+    // let totalPrice = price * quantity;
+    // document.getElementById("totalPrice").innerHTML = totalPrice.toString();
+
+</script>
+
+
 </html>

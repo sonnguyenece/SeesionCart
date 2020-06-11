@@ -42,7 +42,16 @@ public class ProductController {
         return modelAndView;
     }
 
-    @PostMapping("/showCart")
+    @GetMapping("/showCart")
+    public ModelAndView showCart(@ModelAttribute("myCart") Cart cart) {
+        ModelAndView modelAndView = new ModelAndView("/cart");
+        List<Product> productList = (List<Product>) productService.findAll();
+        modelAndView.addObject("cartList", cart.getProductList());
+        modelAndView.addObject("productList",productList);
+        return modelAndView;
+    }
+
+    @PostMapping("/addCart")
     public ModelAndView addCart(@RequestParam("id") Long id, @ModelAttribute("myCart") Cart cart) {
         ModelAndView modelAndView = new ModelAndView("/cart");
 
